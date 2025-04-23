@@ -502,13 +502,34 @@ header .heroImageContainer {
 }
 
 header .heroImageContainer img {
-  border-radius: 50%;
-  margin: 0 auto;
   width: 300px;
   height: 350px;
-  /* -webkit-box-shadow: 12px 0 #d9c8f1, 24px 0 #e2d6f3, 36px 0 #ece6f5;
-          box-shadow: 12px 0 #d9c8f1, 24px 0 #e2d6f3, 36px 0 #ece6f5; */
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  /* Optional: Add a subtle box-shadow for depth */
+  box-shadow: 0 8px 32px rgba(100, 80, 160, 0.2);
+  /* Start with an organic border-radius */
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blobMorph 8s ease-in-out infinite;
 }
+
+@keyframes blobMorph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 50% 60% 40% 60% / 50% 60% 40% 60%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  75% {
+    border-radius: 70% 30% 60% 40% / 60% 40% 60% 30%;
+  }
+}
+
 
 header .heroDescription {
   -webkit-box-flex: 0;
@@ -583,11 +604,12 @@ header .heroDescription .socialsResume .resumeLink:focus {
           display: block;
 }
 
+
 .socialsList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;  
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   margin-left: 50px;
   text-align: center;
   justify-content: center;
@@ -595,8 +617,8 @@ header .heroDescription .socialsResume .resumeLink:focus {
 /* @media (max-width:575px){
   .socialsList {
      display: inline-block;
-    /* flex-direction: column;  */
-    /* align-items: center;
+    flex-direction: column; 
+     align-items: center;
     text-align: center;
   }
 } */ 
